@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %> | Liam Loves Golf</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    
-    
-    
-    <%= render '/layouts/head' %>
-    
-    
-    
-    <header class="headSec">
+ <header class="headSec">
       <h1>Liam’s Golf Store</h1>
       
       <ul>
@@ -42,21 +24,3 @@
       
       
     </header>
-
-    <div class="container">
-    <%= yield %>
-    </div>
-
-<footer class="foot">
-<h1>I’m the Footer</h1>
-</footer>
-
-    
-    
-    
-    
-    
-    
-    
-  </body>
-</html>
