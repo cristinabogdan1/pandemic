@@ -31,6 +31,9 @@
          <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
          <% end %>
          
+         
+         <a href="/cart/<%= item.id %>" class="button">Add To Cart</a>
+         
        </p>
        
        

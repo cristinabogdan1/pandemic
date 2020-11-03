@@ -1,0 +1,33 @@
+<% if @cart.empty? %>
+
+<h1>Bebhinn said you need to spend some money with us.... Go add products</h1>
+
+<% end %>
+
+<div id="itemsContainer">
+    
+    
+    <table id="cartTable">
+        <% total = 0 %>
+        
+        <% @cart.each do |id, quantity| %>
+        
+                    <% item = Item.find_by_id(id) %>
+        
+         <tr>
+            <td><%= item.title %></td>
+            
+        </tr>
+        
+        
+        <% end %>
+        
+        
+        
+    </table>
+    
+    
+    
+    
+    
+</div>
