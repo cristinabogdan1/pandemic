@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  
+  before_action :authenticate_user!
   
   def index
     
@@ -47,6 +47,63 @@ class CartController < ApplicationController
       
       redirect_to :action => :index
     end 
+    
+    
+    def clearcart
+ 
+           session[:cart] = nil
+      redirect_to :action => :index
+      
+    end
+    
+    
+    
+    def remove
+      
+      id = params[:id]
+      cart = session[:cart]
+      cart.delete id
+      
+      redirect_to :root
+    end
+    
+    
+    def decrease
+      
+       id = params[:id]
+       cart = session[:cart]
+       
+       if cart[id] == 1 then
+         
+         cart.delete id
+         
+       else
+       
+       cart[id] = cart[id] -1
+      
+       end
+       redirect_to :action => :index
+      
+    end 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
   
   

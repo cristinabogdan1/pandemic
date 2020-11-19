@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def help
+        # session[:cart] = nil
   end
 
   def about
