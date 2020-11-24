@@ -84,10 +84,37 @@ class CartController < ApplicationController
        end
        redirect_to :action => :index
       
-    end 
+
+   
+end 
     
     
     
+    def createOrder 
+      
+      # Step 1 Find user information
+      
+      @user = User.find(current_user.id)
+      
+      # Step 2 Make a anew order and link that order with the current user
+      
+     @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+    @order.save
+    
+    
+    # Step three - Save each order item from the cart into the orderitems table 
+    @cart = session[:cart] || {} # This gets the items from the users cart session
+    
+    @cart.each do | id, quantity |
+      
+      item = Item.find_by_id(id)
+    
+    @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price => item.price)
+    @orderitem.save
+  end 
+  
+  
+    end   
     
     
     
