@@ -15,4 +15,19 @@ class StaticPagesController < ApplicationController
     
    
   end
+  
+  
+  def adminsection
+    @orders = Order.all
+    
+  end
+  
+  
+  def paid
+    @order = Order.last
+    
+    @order.update_attribute(:status, 'This Has Been Paid')
+    
+    
+  end
 end

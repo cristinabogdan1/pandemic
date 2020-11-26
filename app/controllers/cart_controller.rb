@@ -113,7 +113,23 @@ end
     @orderitem.save
   end 
   
-  
+ 
+ @orders = Order.all
+ 
+ @orderitems = Orderitem.where(order_id: Order.last)
+ 
+ 
+ 
+  #<% @orderitems.each do |id, quantity| %>
+ 
+ 
+ 
+ 
+ 
+   
+ #redirect_to '/done'
+
+#redirect_to :action => :done
     end   
     
     
@@ -131,9 +147,28 @@ end
     
     
     
-  
-  
-  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    def done
+     # @orders.limit(1).order(id: :desc).where(user: User.find(current_user.id))
+      
+     @orderitems = Orderitem.where(order_id: Order.limit(1).order(id: :desc).where(user: User.find(current_user.id)))
+     
+    # Permission.find_by(user_id: params[:user_id], project_id: params[:project_id])
+    end
+    
 end
 
 

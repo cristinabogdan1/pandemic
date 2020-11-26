@@ -14,10 +14,13 @@ Rails.application.routes.draw do
       resources:orders
      end 
   
+  get '/paid/:id' => 'static_pages#paid'
+  
+  get '/admin' => 'static_pages#adminsection'
   
   get '/checkout' => 'cart#createOrder'
   
-  
+  get '/done' => 'cart#done'
   
   get 'cart/index'
 
